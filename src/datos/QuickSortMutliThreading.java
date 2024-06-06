@@ -10,7 +10,7 @@ public class QuickSortMutliThreading
 	 */
 	private static final long serialVersionUID = 1L;
 	int start, end;
-    int[] arr;
+    static int[] arr;
  
     /**
      * Finding random pivoted and partition
@@ -22,8 +22,7 @@ public class QuickSortMutliThreading
      * @param arr
      * @return
      */
-    private int partition(int start, int end,
-                        int[] arr)
+    private int partition(int start, int end)
     {
 		
         int i = start, j = end;
@@ -69,10 +68,8 @@ public class QuickSortMutliThreading
  
     // QuickSort constructor
     public QuickSortMutliThreading(int start,
-                                   int end,
-                                   int[] arr)
+                                   int end)
     {
-        this.arr = arr;
         this.start = start;
         this.end = end;
     }
@@ -85,19 +82,19 @@ public class QuickSortMutliThreading
             return null;
  
         // Find partition
-        int p = partition(start, end, arr);
+        int p = partition(start, end);
  
         // Divide array en 2 hilos
         //hilo la mitad izquierda
         QuickSortMutliThreading left
             = new QuickSortMutliThreading(start,
-                                          p - 1,
-                                          arr);
+                                          p - 1
+                                       );
         //hilo la mitad derecha
         QuickSortMutliThreading right
             = new QuickSortMutliThreading(p + 1,
-                                          end,
-                                          arr);
+                                          end
+                                          );
  
         left.fork();//envia a ejecutar en otro hilo
         right.compute();//incia el mismo algoritmo en la parte derecha, crea mas subHilos, recursivo

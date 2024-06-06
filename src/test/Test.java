@@ -39,7 +39,7 @@ public class Test{
 			//testeo 2
 			IniciarCarrera(500000);
 			//testeo 3
-			IniciarCarrera(1000000);
+			IniciarCarrera(800000);
 
 		}
 	

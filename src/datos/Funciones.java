@@ -65,6 +65,7 @@ public class Funciones {
 
 		// Inicia el primer hilo
 		// Para el rango low hasta high
-		pool.invoke(new QuickSortMutliThreading(low, high, arr));
+		QuickSortMutliThreading.arr=arr;
+		pool.invoke(new QuickSortMutliThreading(low, high));
 	}
 }
